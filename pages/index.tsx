@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import utilStyles from "../styles/utils.module.css";
-import Date from "../components/date";
+
+import Date from "../components/Common/date";
 import { getSortedPostsData } from "../lib/posts";
 import Layout from "../components/Layout";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
@@ -17,6 +18,7 @@ export default function Home({
   allPostsData,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   console.log("allPost", allPostsData);
+  
   return (
     <Layout home>
       <Head>
