@@ -5,6 +5,8 @@ import utilStyles from "../../styles/utils.module.css";
 import Link from "next/link";
 import { FC, ReactNode } from "react";
 import Footer from "./Footer";
+import Header from "./Header";
+
 const name = "Aim at fingertips";
 export const siteTitle = "A Sample blog";
 
@@ -19,7 +21,7 @@ const Layout: FC<Props> = function ({ children, home }) {
       <Head>
         <meta name="description" content="志在指尖, 一个专注于编程的博客" />
         <link rel="icon" href="/finger.svg" />
-    
+
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
@@ -29,7 +31,11 @@ const Layout: FC<Props> = function ({ children, home }) {
         <meta name="og:title" content={name} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
+
+      <Header />
+
+{/*       
+      <section className={styles.header}>
         {home ? (
           <>
             <Image
@@ -63,8 +69,10 @@ const Layout: FC<Props> = function ({ children, home }) {
             </h2>
           </>
         )}
-      </header>
-      <main>{children}</main>
+      </section>
+      <main>{children}</main> */}
+     
+     
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">

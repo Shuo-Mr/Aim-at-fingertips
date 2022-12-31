@@ -1,0 +1,34 @@
+.header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  border-bottom: 1px solid #eaeaea;
+  .navbar {
+    width: 100%;
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 100px;
+    text-align: center;
+    .header__content {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      .header__webName {
+        display: flex;
+        justify-items: center;
+        align-content: center;
+      }
+
+      .navbar__action {
+        // background-color: aqua;
+      }
+
+    }
+  }
+
+
+
+}
