@@ -3,11 +3,14 @@ import Image from "next/image";
 import style from "./Header.module.scss";
 import classNames from "classnames";
 import Github from "../Other/Github";
-import Switch from '@/components/Theme/ASwitch'
+import { Stack } from "@mui/material";
+import ThemeSwitch from "../Theme/Switch";
+
 type Props = {
   isFixed?: boolean;
 };
-export default function Footer(props: Props) {
+
+export default function Header(props: Props) {
   return (
     <header id="header" className={classNames(style.header)}>
       <div className={style.navbar}>
@@ -25,11 +28,21 @@ export default function Footer(props: Props) {
 
             <div>志在指尖</div>
           </div>
+          <div className={style.navbar__list}>
+            <Stack spacing={2} direction="row">
+              <Link href="/" prefetch>
+                Home
+              </Link>
+              <Link href="/about" prefetch>
+                About
+              </Link>
+              <Link href="/contact" prefetch>
+                Contact
+              </Link>
+            </Stack>
+          </div>
           <div className={style.navbar__action}>
-                {/* 测试 */}
-                <Switch>
-                  测试啊
-                  </Switch>
+            <ThemeSwitch />
           </div>
         </div>
       </div>

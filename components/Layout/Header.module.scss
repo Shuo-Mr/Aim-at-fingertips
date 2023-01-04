@@ -16,19 +16,18 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       .header__webName {
         display: flex;
         justify-items: center;
         align-content: center;
       }
-
+      .navbar__list {
+        display: flex;
+      }
       .navbar__action {
         // background-color: aqua;
       }
-
     }
   }
-
-
-
 }

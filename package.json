@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@fontsource/roboto": "^4.5.8",
     "@mui/material": "^5.11.3",
     "@mui/styled-engine-sc": "^5.11.0",
@@ -24,6 +26,7 @@
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.7",
     "@svgr/webpack": "^6.5.1",
     "@types/node": "18.11.5",
     "@types/react": "18.0.23",
