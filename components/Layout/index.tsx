@@ -19,6 +19,8 @@ const Layout: FC<Props> = function ({ children, home }) {
   return (
     <div className={styles.container}>
       <Head>
+        <title>志在指尖</title>
+
         <meta name="description" content="志在指尖, 一个专注于编程的博客" />
         <link rel="icon" href="/finger.svg" />
 
@@ -34,9 +36,8 @@ const Layout: FC<Props> = function ({ children, home }) {
 
       <Header />
 
-{/*       
       <section className={styles.header}>
-        {home ? (
+        {home && (
           <>
             <Image
               priority
@@ -48,38 +49,10 @@ const Layout: FC<Props> = function ({ children, home }) {
             />
             <h1 className={utilStyles.heading2Xl}>{name}</h1>
           </>
-        ) : (
-          <>
-            <Link href="/">
-              <a>
-                <Image
-                  priority
-                  src="/images/profile.jpg"
-                  className={utilStyles.borderCircle}
-                  height={108}
-                  width={108}
-                  alt={name}
-                />
-              </a>
-            </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
-              </Link>
-            </h2>
-          </>
         )}
       </section>
-      <main>{children}</main> */}
-     
-     
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
-      )}
+      <main>{children}</main>
+
       <Footer isFixed></Footer>
     </div>
   );
