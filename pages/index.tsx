@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Link from "next/link";
 import utilStyles from "../styles/utils.module.css";
 
@@ -16,8 +15,6 @@ type Post = {
 export default function Home({
   allPostsData,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  console.log("allPost", allPostsData);
-
   return (
     <Layout home>
       <section className={utilStyles.headingMd}>

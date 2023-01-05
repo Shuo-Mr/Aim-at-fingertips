@@ -1,12 +1,10 @@
 const path = require("path");
+const { i18n } = require("./next-i18next.config");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  i18n: {
-    locales: ["en", "zh"],
-    defaultLocale: "zh",
-  },
+  i18n,
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
@@ -18,11 +16,11 @@ const nextConfig = {
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
-      use: ['@svgr/webpack'],
-    })
+      use: ["@svgr/webpack"],
+    });
 
-    return config 
-  }
+    return config;
+  },
 };
 
 module.exports = nextConfig;
