@@ -2,12 +2,13 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "./index.module.css";
 import utilStyles from "../../styles/utils.module.css";
-import Link from "next/link";
+// import Link from "next/link";
 import { FC, ReactNode } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
+import { useTranslation } from "next-i18next";
+// import { useTranslation } from "react-i18next";
 
-const name = "Aim at fingertips";
 export const siteTitle = "A Sample blog";
 
 type Props = {
@@ -16,10 +17,13 @@ type Props = {
 };
 
 const Layout: FC<Props> = function ({ children, home }) {
+  const { t } = useTranslation(["common"]);
+
+  const name = t("name");
   return (
     <div className={styles.container}>
       <Head>
-        <title>志在指尖</title>
+        <title>{name}</title>
 
         <meta name="description" content="志在指尖, 一个专注于编程的博客" />
         <link rel="icon" href="/finger.svg" />

@@ -5,12 +5,15 @@ import classNames from "classnames";
 import Github from "../Other/Github";
 import { Stack } from "@mui/material";
 import ThemeSwitch from "../Theme/Switch";
+import { useTranslation } from "next-i18next";
 
 type Props = {
   isFixed?: boolean;
 };
 
 export default function Header(props: Props) {
+  const { t } = useTranslation(["common"]);
+
   return (
     <header id="header" className={classNames(style.header)}>
       <div className={style.navbar}>
@@ -22,22 +25,22 @@ export default function Header(props: Props) {
                 src="/finger.svg"
                 height={24}
                 width={24}
-                alt="志在指尖"
+                alt={t("name")}
               />
             </Link>
 
-            <div>志在指尖</div>
+            <div>{t("name")}</div>
           </div>
           <div className={style.navbar__list}>
-            <Stack spacing={2} direction="row">
+            <Stack spacing={4} direction="row">
               <Link href="/" prefetch>
-                Home
+                {t("home")}
               </Link>
               <Link href="/about" prefetch>
-                About
+                {t("about")}
               </Link>
               <Link href="/contact" prefetch>
-                Contact
+                {t("contact")}
               </Link>
             </Stack>
           </div>

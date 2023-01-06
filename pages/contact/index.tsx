@@ -6,7 +6,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 
 export default function Contact({}) {
-  const { t } = useTranslation("contact");
+  const { t } = useTranslation(["contact", "common"]);
   return (
     <Layout>
       <section>
@@ -22,7 +22,7 @@ export default function Contact({}) {
 export const getStaticProps: GetStaticProps<{}> = async ({ locale = "zh" }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["contact"])),
+      ...(await serverSideTranslations(locale, ["contact", "common"])),
     },
   };
 };

@@ -5,6 +5,7 @@ import Date from "../components/Common/date";
 import { getSortedPostsData } from "../lib/posts";
 import Layout from "../components/Layout";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 type Post = {
   id: string;
@@ -41,11 +42,12 @@ export default function Home({
 
 export const getStaticProps: GetStaticProps<{
   allPostsData: Post[];
-}> = async () => {
+}> = async ({ locale = "zh" }) => {
   const allPostsData: Post[] = getSortedPostsData();
   return {
     props: {
       allPostsData,
+      ...(await serverSideTranslations(locale, ["contact", "common"])),
     },
   };
 };
