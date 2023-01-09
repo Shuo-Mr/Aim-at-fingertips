@@ -1,5 +1,5 @@
 import { styled, Switch } from "@mui/material";
-import { useEffect, useState } from "react";
+import useAppTheme from "hooks/useAppTheme";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -49,23 +49,9 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 function ThemeSwitch() {
-  const [checked, setChecked] = useState<boolean>(false);
+  const [checked, setChecked, toggle] = useAppTheme();
 
-  useEffect(() => {
-    const isDark = document.documentElement.classList.contains("dark");
-    setChecked(isDark);
-  }, []);
-  // const query = window.matchMedia("(prefers-color-scheme: dark)");
-
-  useEffect(() => {}, [checked]);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(e.target.checked);
-  };
-
-  return (
-    <MaterialUISwitch sx={{ m: 1 }} checked={checked} onChange={handleChange} />
-  );
+  return <MaterialUISwitch sx={{ m: 1 }} checked={checked} onChange={toggle} />;
 }
 
 export default ThemeSwitch;
