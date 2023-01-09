@@ -29,8 +29,6 @@ function useAppTheme(): [
     }
   };
 
-  console.log(query, classList, "??????");
-
   function setClass(dark: boolean): void {
     classList[dark ? "add" : "remove"]("dark");
     setChecked(dark);
