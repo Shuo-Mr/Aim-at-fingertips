@@ -48,7 +48,12 @@ export function getAllPostIds() {
   });
 }
 
-export async function getPostData(id: number) {
+export type PostData = {
+  id: string;
+  contentHtml: string;
+} & Record<string, any>;
+
+export async function getPostData(id: string): Promise<PostData> {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
