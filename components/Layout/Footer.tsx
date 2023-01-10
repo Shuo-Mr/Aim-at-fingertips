@@ -6,13 +6,16 @@ type Props = {
 };
 export default function Footer(props: Props) {
   return (
-    <footer
-      className={classNames(style.footer, props.isFixed ? style.fixed : "")}
-    >
-      <div>Liang Shuo</div>
-      <div> * </div>
-      <div>©️ </div>
-      <Link href="/">liangshuo.wang</Link>
-    </footer>
+    <>
+      <footer
+        className={classNames(style.footer, props.isFixed ? style.fixed : "")}
+      >
+        <div>Liang Shuo</div>
+        <div> * </div>
+        <div>©️ </div>
+        <Link href="/">liangshuo.wang</Link>
+      </footer>
+      {props.isFixed && <div className={style.block}></div>}
+    </>
   );
 }
