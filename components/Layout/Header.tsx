@@ -33,15 +33,9 @@ export default function Header(props: Props) {
           </div>
           <div className={style.navbar__list}>
             <Stack spacing={4} direction="row">
-              <Link href="/" prefetch>
-                {t("home")}
-              </Link>
-              <Link href="/about" prefetch>
-                {t("about")}
-              </Link>
-              <Link href="/contact" prefetch>
-                {t("contact")}
-              </Link>
+              <Link href="/">{t("home")}</Link>
+              <Link href="/about">{t("about")}</Link>
+              <Link href="/contact">{t("contact")}</Link>
             </Stack>
           </div>
           <div className={style.navbar__action}>
