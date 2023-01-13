@@ -9,6 +9,11 @@ function useAppTheme(): [
 ] {
   const [checked, setChecked] = useState<boolean>(false);
 
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains("dark");
+    setChecked(isDark);
+  }, []);
+
   if (isServer()) {
     return [checked, setChecked, () => {}];
   }
