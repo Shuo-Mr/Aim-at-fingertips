@@ -69,20 +69,25 @@ export async function getPostData(id: string): Promise<PostData> {
 
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
+  let contentHtml = "";
+  try {
+    const processedContent = await unified()
+      .use(remarkParse)
+      .use(remarkGfm)
+      .use(remarkFrontmatter)
+      .use(remarkToc)
+      .use(remarkRehype)
+      .use(rehypeDocument, { title: "Contents" })
+      .use(rehypeFormat)
+      .use(rehypeHighlight)
+      .use(rehypeStringify)
+      .process(matterResult.content);
 
-  const processedContent = await unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkFrontmatter)
-    .use(remarkToc)
-    .use(remarkRehype)
-    .use(rehypeDocument, { title: "Contents" })
-    .use(rehypeFormat)
-    .use(rehypeHighlight)
-    .use(rehypeStringify)
-    .process(matterResult.content);
-
-  const contentHtml = processedContent.value.toString();
+    contentHtml = processedContent.value.toString();
+  } catch (e) {
+    console.log("render markdown Error:", e);
+    contentHtml = "<h1>render Markdown Error</h1>";
+  }
 
   // Combine the data with the id and contentHtml
   return {

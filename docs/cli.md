@@ -31,7 +31,7 @@ vue create hello-world
 
 创建一个空仓库, 如 cli-test
 
-```hash
+```bash
 npm init -y
 ```
 
@@ -107,7 +107,7 @@ console.log("Hello World!");
 
 使用 npm 软链接进行测试
 
-```hash
+```bash
 # 软链接
 $ npm link
 # 输入命令
@@ -147,7 +147,7 @@ $ test-cli
 
 增加对应的工具库
 
-```hash
+```bash
 yarn add commander envinfo chalk
 ```
 
@@ -202,7 +202,7 @@ program.on("command:*", ([cmd]) => {
 program.parse(process.argv);
 ```
 
-```hash
+```bash
 # 输入以下命令行即可打印环境信息
 $ test-cli info
 # 输入以下命令获取帮助
@@ -249,7 +249,7 @@ program
 
 - 创建模块文件夹
 
-```hash
+```bash
 mkdir templates
 ```
 
@@ -281,7 +281,7 @@ html {
 
 这里借助 ejs 模版引擎将用户输入的数据渲染到模版文件上
 
-```hash
+```bash
 yarn add ejs
 ```
 
