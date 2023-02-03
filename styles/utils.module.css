@@ -25,7 +25,6 @@
   line-height: 1.5;
 }
 
-
 .borderCircle {
   border-radius: 9999px;
 }
@@ -50,4 +49,9 @@
 
 .lightText {
   color: #666;
+}
+
+.docBox {
+  text-align: left;
+  padding: 0 20px;
 }
